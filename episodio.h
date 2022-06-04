@@ -14,7 +14,7 @@ private:
 
 public:
     Episodio();
-    Episodio(int &t, int &num, string &i, string &n, double &c, int &d, string &f);
+    Episodio(int t, int num, string i, string n, double c, int d, string f);
 
     int getTemporada();
 

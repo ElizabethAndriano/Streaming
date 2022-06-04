@@ -16,7 +16,7 @@ private:
 
 public:
     Video();
-    Video(string &i, string &n, double &c, int &d, string &f);
+    Video(string i, string n, double c, int d, string f);
 
     string getId();
     string getNombre();

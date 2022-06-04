@@ -17,7 +17,7 @@ private:
 
 public:
     Serie();
-    Serie(string &i, string &t, string &g, vector<Episodio> &episodiosIniciales);
+    Serie(string i, string t, string g);
 
     void agregarEpisodio(Episodio &ep);
     void agregarTemporada(vector<Episodio> &temp);

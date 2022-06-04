@@ -13,7 +13,7 @@ private:
 
 public:
     Pelicula();
-    Pelicula(string &g, string &i, string &n, double &c, int &d, string &f);
+    Pelicula(string g, string i, string n, double c, int d, string f);
 
     void display();
 };

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Polimorfismo" id="WrhkKS1NCgMQSTT_F4kI">
-        <mxGraphModel dx="404" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="760" dy="470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-0"/>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-1" parent="28rAnF6bt6Dn-hRfDJhw-0"/>
@@ -23,7 +23,7 @@
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-4" vertex="1">
                     <mxGeometry y="50" width="210" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="28rAnF6bt6Dn-hRfDJhw-6" value="+ Pelicula();&#10;+ Pelicula(g: string, i: string, n: string, &#10;c: double, d: int, f: string)&#10;+display(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-4" vertex="1">
+                <mxCell id="28rAnF6bt6Dn-hRfDJhw-6" value="+ Pelicula();&#10;+ Pelicula(g: string, i: string, n: string, &#10;   c: double, d: int, f: string)&#10;+display(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-4" vertex="1">
                     <mxGeometry y="58" width="210" height="72" as="geometry"/>
                 </mxCell>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-7" style="edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;endArrow=block;endFill=0;endSize=10;entryX=0.663;entryY=1.034;entryDx=0;entryDy=0;entryPerimeter=0;" parent="28rAnF6bt6Dn-hRfDJhw-1" source="28rAnF6bt6Dn-hRfDJhw-14" target="28rAnF6bt6Dn-hRfDJhw-30" edge="1">
@@ -33,7 +33,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-9" value="Serie" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="28rAnF6bt6Dn-hRfDJhw-1" vertex="1">
-                    <mxGeometry x="510" y="290" width="300" height="280" as="geometry"/>
+                    <mxGeometry x="560" y="280" width="300" height="280" as="geometry"/>
                 </mxCell>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-10" value="- id: string&#10;- titulo: string&#10;- genero: string&#10;- episodios: vector &lt;Episodio&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-9" vertex="1">
                     <mxGeometry y="26" width="300" height="64" as="geometry"/>
@@ -41,7 +41,7 @@
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-9" vertex="1">
                     <mxGeometry y="90" width="300" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="28rAnF6bt6Dn-hRfDJhw-12" value="+Serie();&#10;+Serie( i: string, t: string, &#10;g: string, episodiosIniciales:&#10;vector&lt;Episodio&gt;)&#10;+agregarEpisodio(ep: Episodio): void&#10;+agregarTemporada(temp: vector&lt;Episodio&gt;): void&#10;&#10;+ verEpisodios(): void&#10;+ verTemporada(temp: int): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-9" vertex="1">
+                <mxCell id="28rAnF6bt6Dn-hRfDJhw-12" value="+ Serie();&#10;+ Serie( i: string, t: string, g: string, &#10;   episodiosIniciales: vector&lt;Episodio&gt;)&#10;+ agregarEpisodio(ep: Episodio): void&#10;+ agregarTemporada(temp: vector&lt;Episodio&gt;): void&#10;+ verEpisodios(): void&#10;+ verTemporada(temp: int): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-9" vertex="1">
                     <mxGeometry y="98" width="300" height="182" as="geometry"/>
                 </mxCell>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-13" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;endArrow=diamond;endFill=1;endSize=10;" parent="28rAnF6bt6Dn-hRfDJhw-1" source="28rAnF6bt6Dn-hRfDJhw-14" target="28rAnF6bt6Dn-hRfDJhw-9" edge="1">
@@ -56,7 +56,7 @@
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-14" vertex="1">
                     <mxGeometry y="60" width="200" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="28rAnF6bt6Dn-hRfDJhw-17" value="+ Episodio();&#10;+ Episodio(t: int, num: int, i: string, &#10;n: string, c: double, d: int, f: string)&#10;+ getTemporada(): int&#10;+ display(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-14" vertex="1">
+                <mxCell id="28rAnF6bt6Dn-hRfDJhw-17" value="+ Episodio();&#10;+ Episodio(t: int, num: int, i: string, &#10;   n: string, c: double, d: int, f: string)&#10;+ getTemporada(): int&#10;+ display(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-14" vertex="1">
                     <mxGeometry y="68" width="200" height="82" as="geometry"/>
                 </mxCell>
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-18" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;endArrow=diamond;endFill=1;endSize=10;" parent="28rAnF6bt6Dn-hRfDJhw-1" source="28rAnF6bt6Dn-hRfDJhw-19" target="28rAnF6bt6Dn-hRfDJhw-23" edge="1">
@@ -95,7 +95,7 @@
                 <mxCell id="28rAnF6bt6Dn-hRfDJhw-29" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-27" vertex="1">
                     <mxGeometry y="110" width="280" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="28rAnF6bt6Dn-hRfDJhw-30" value="+ Video();&#10;+ Video(i: string, n: string, c: double, d: int, f: string)&#10;+ getId(): string&#10;+ getNombre(): string&#10;+ getCalificacion(): double&#10;+ getDuracion(): int&#10;+getFechaEstreno(): string&#10;+ setCalificacion(cali: double): void&#10;+ &lt;&lt; virtual &gt;&gt; display(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-27" vertex="1">
+                <mxCell id="28rAnF6bt6Dn-hRfDJhw-30" value="+ Video();&#10;+ Video(i: string, n: string, c: double, d: int, f: string)&#10;+ getId(): string&#10;+ getNombre(): string&#10;+ getCalificacion(): double&#10;+ getDuracion(): int&#10;+ getFechaEstreno(): string&#10;+ setCalificacion(cali: double): void&#10;+ &lt;&lt; virtual &gt;&gt; display(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="28rAnF6bt6Dn-hRfDJhw-27" vertex="1">
                     <mxGeometry y="118" width="280" height="152" as="geometry"/>
                 </mxCell>
             </root>

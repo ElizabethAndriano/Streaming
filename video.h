@@ -16,7 +16,7 @@ private:
 
 public:
     Video();
-    Video(string i, string n, double c, int d, string f);
+    Video(string &i, string &n, double &c, int &d, string &f);
 
     string getId();
     string getNombre();
@@ -24,7 +24,7 @@ public:
     int getDuracion();
     string getFechaEstreno();
 
-    void setCalificacion(double cali);
+    void setCalificacion(double &cali);
     virtual void display() = 0;
 };
 

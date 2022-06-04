@@ -17,13 +17,13 @@ private:
 
 public:
     Serie();
-    Serie(string i, string t, string g, vector<Episodio> episodiosIniciales);
+    Serie(string &i, string &t, string &g, vector<Episodio> &episodiosIniciales);
 
-    void agregarEpisodio(Episodio ep);
-    void agregarTemporada(vector<Episodio> temp);
+    void agregarEpisodio(Episodio &ep);
+    void agregarTemporada(vector<Episodio> &temp);
 
     void verEpisodios();
-    void verTemporada(int temp);
+    void verTemporada(int &temp);
 };
 
 #endif

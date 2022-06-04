@@ -12,7 +12,7 @@ Serie::Serie()
     genero = "NE";
 }
 
-Serie::Serie(string i, string t, string g, vector<Episodio> episodiosIniciales)
+Serie::Serie(string &i, string &t, string &g, vector<Episodio> &episodiosIniciales)
 {
     id = i;
     titulo = t;
@@ -20,11 +20,11 @@ Serie::Serie(string i, string t, string g, vector<Episodio> episodiosIniciales)
     episodios = episodiosIniciales;
 }
 
-void Serie::agregarEpisodio(Episodio ep)
+void Serie::agregarEpisodio(Episodio &ep)
 {
     episodios.push_back(ep);
 }
-void Serie::agregarTemporada(vector<Episodio> temp)
+void Serie::agregarTemporada(vector<Episodio> &temp)
 {
     for (int i = 0; i < temp.size(); i++)
     {
@@ -45,7 +45,7 @@ void Serie::verEpisodios()
     }
 }
 
-void Serie::verTemporada(int temp)
+void Serie::verTemporada(int &temp)
 {
     cout << "Reproduciendo Temporada " << temp << " De " << titulo << endl;
     cout << "ID: " << id << endl;

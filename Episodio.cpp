@@ -9,7 +9,7 @@ Episodio::Episodio()
     numero = 0;
 }
 
-Episodio::Episodio(int t, int num, string i, string n, double c, int d, string f) : Video(i, n, c, d, f)
+Episodio::Episodio(int &t, int &num, string &i, string &n, double &c, int &d, string &f) : Video(i, n, c, d, f)
 {
     temporada = t;
     numero = num;

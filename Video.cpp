@@ -12,7 +12,7 @@ Video::Video()
     fechaEstreno = "NE";
 }
 
-Video::Video(string i, string n, double c, int d, string f)
+Video::Video(string &i, string &n, double &c, int &d, string &f)
 {
     id = i;
     nombre = n;
@@ -21,7 +21,7 @@ Video::Video(string i, string n, double c, int d, string f)
     fechaEstreno = f;
 }
 
-void Video::setCalificacion(double cali)
+void Video::setCalificacion(double &cali)
 {
     calificacion = cali;
 }

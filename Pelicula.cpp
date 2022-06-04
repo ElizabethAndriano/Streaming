@@ -8,7 +8,7 @@ Pelicula::Pelicula()
     genero = "NE";
 }
 
-Pelicula::Pelicula(string g, string i, string n, double c, int d, string f) : Video(i, n, c, d, f)
+Pelicula::Pelicula(string &g, string &i, string &n, double &c, int &d, string &f) : Video(i, n, c, d, f)
 {
     genero = g;
 }

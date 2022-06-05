@@ -25,9 +25,9 @@ public:
     
     void ver();
     void ver(string tipo);
-    void verCalificacion(int calif);
-    void verCalificacion(int calif, string tipo);
-    void verGenero();
+    void verCalificacion(double calif);
+    void verCalificacion(double calif, string tipo);
+    void verGenero(string genero);
 
 };
 

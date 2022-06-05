@@ -15,6 +15,7 @@ public:
     Pelicula();
     Pelicula(string g, string i, string n, double c, int d, string f);
 
+    string getGenero();
     void display();
 };
 

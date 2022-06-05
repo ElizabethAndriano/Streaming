@@ -31,6 +31,20 @@ void Serie::agregarTemporada(vector<Episodio> &temp)
     }
 }
 
+string Serie::getGenero(){
+    return genero;
+}
+
+vector<Episodio> Serie::getCalificacion(double calif){
+    vector<Episodio> epCalificacion;
+    for (int i = 0; i < episodios.size(); i++){
+        if (episodios[i].getCalificacion() >= calif){
+            epCalificacion.push_back(episodios[i]);
+        }
+    }
+    return epCalificacion;
+}
+
 void Serie::verEpisodios()
 {
     cout << "Serie " << id << endl;

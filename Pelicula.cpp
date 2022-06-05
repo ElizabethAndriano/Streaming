@@ -13,6 +13,10 @@ Pelicula::Pelicula(string g, string i, string n, double c, int d, string f) : Vi
     genero = g;
 }
 
+string Pelicula::getGenero(){
+    return genero;
+}
+
 void Pelicula::display()
 {
     cout << "Pelicula " << getId() << endl;

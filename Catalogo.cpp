@@ -12,6 +12,7 @@ Catalogo::Catalogo()
 Catalogo::Catalogo(string file)
 {
     // Leer el archivo y almacenarlo en los vectores
+    // Se agregará cuando veamos leer archivos
 }
 
 void Catalogo::agregar(Pelicula &pelicula)
@@ -48,8 +49,6 @@ void Catalogo::ver(string tipo){
         for (int i = 0; i < peliculas.size(); i++){
             peliculas[i].display();
         }
-
-        cout << "********************************************************" << endl << endl;
     }
     else if (tipo == "series"){
 
@@ -58,11 +57,11 @@ void Catalogo::ver(string tipo){
         for (int i = 0; i < series.size(); i++){
             series[i].verEpisodios();
         }
-
-        cout << "********************************************************" << endl << endl;
     }
+
+    cout << "********************************************************" << endl << endl;
 }
-void Catalogo::verCalificacion(int calif)
+void Catalogo::verCalificacion(double calif)
 {
     cout << "*****************    Calificacion " << calif << "    *****************" << endl << endl;
 
@@ -71,20 +70,58 @@ void Catalogo::verCalificacion(int calif)
             peliculas[i].display();
         }
     }
-
-    /*for (int i = 0; i < series.size(); i++){
-        if (series[i].getCalificacion() >= calif){
-            series[i].display();
-        }
-    }*/
+    
+    for (int i = 0; i < series.size(); i++){
+        Serie serie;
+        vector<Episodio> episodios = series[i].getCalificacion(calif);
+        serie.agregarTemporada(episodios);
+        serie.verEpisodios();
+    }
 
     cout << "********************************************************" << endl << endl;
 }
-void Catalogo::verCalificacion(int calif, string tipo)
+void Catalogo::verCalificacion(double calif, string tipo)
 {
-    // En proceso (usar un while)
+    cout << "*****************    Calificacion " << calif << "    *****************" << endl << endl;
+
+    if (tipo == "peliculas"){
+
+        cout << "************    Calificacion Peliculas " << calif << "    ************" << endl << endl;
+
+        for (int i = 0; i < peliculas.size(); i++){
+            if (peliculas[i].getCalificacion() >= calif){
+                peliculas[i].display();
+            }
+        }
+    }
+    else if (tipo == "series"){
+
+        cout << "*************    Calificacion Series " << calif << "    **************" << endl << endl;
+        for (int i = 0; i < series.size(); i++){
+            Serie serie;
+            vector<Episodio> episodios = series[i].getCalificacion(calif);
+            serie.agregarTemporada(episodios);
+            serie.verEpisodios();
+        }
+    }
+    cout << "********************************************************" << endl << endl;
 }
-void Catalogo::verGenero()
+void Catalogo::verGenero(string genero)
 {
-    // En proceso (usar un while)
+    cout << "********************    Genero     *********************" << endl;
+    cout << genero << endl << endl;
+
+    for (int i = 0; i < peliculas.size(); i++){
+        if (peliculas[i].getGenero() >= genero){
+            peliculas[i].display();
+        }
+    }
+
+    for (int i = 0; i < series.size(); i++){
+        if (series[i].getGenero() == genero){
+            series[i].verEpisodios();
+        }
+    }
+
+    cout << "********************************************************" << endl << endl;
 }

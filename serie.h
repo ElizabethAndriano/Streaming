@@ -23,7 +23,7 @@ public:
     void agregarTemporada(vector<Episodio> &temp);
 
     string getGenero();
-    vector<Episodio> getCalificacion(double calif);
+    vector<Episodio> getCalificacion(double &calif);
     void verEpisodios();
     void verTemporada(int &temp);
 };

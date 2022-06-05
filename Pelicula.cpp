@@ -13,7 +13,8 @@ Pelicula::Pelicula(string g, string i, string n, double c, int d, string f) : Vi
     genero = g;
 }
 
-string Pelicula::getGenero(){
+string Pelicula::getGenero()
+{
     return genero;
 }
 
@@ -24,5 +25,6 @@ void Pelicula::display()
     cout << "Calificacion: " << getCalificacion() << endl;
     cout << "Duracion: " << getDuracion() << endl;
     cout << "Fecha De Estreno: " << getFechaEstreno() << endl;
-    cout << "Genero: " << genero << endl << endl;
+    cout << "Genero: " << genero << endl
+         << endl;
 }

@@ -31,14 +31,18 @@ void Serie::agregarTemporada(vector<Episodio> &temp)
     }
 }
 
-string Serie::getGenero(){
+string Serie::getGenero()
+{
     return genero;
 }
 
-vector<Episodio> Serie::getCalificacion(double calif){
+vector<Episodio> Serie::getCalificacion(double &calif)
+{
     vector<Episodio> epCalificacion;
-    for (int i = 0; i < episodios.size(); i++){
-        if (episodios[i].getCalificacion() >= calif){
+    for (int i = 0; i < episodios.size(); i++)
+    {
+        if (episodios[i].getCalificacion() >= calif)
+        {
             epCalificacion.push_back(episodios[i]);
         }
     }
@@ -49,7 +53,8 @@ void Serie::verEpisodios()
 {
     cout << "Serie " << id << endl;
     cout << "Titulo: " << titulo << endl;
-    cout << "Genero: " << genero << endl << endl;
+    cout << "Genero: " << genero << endl
+         << endl;
 
     for (int i = 0; i < episodios.size(); i++)
     {
@@ -60,10 +65,12 @@ void Serie::verEpisodios()
 void Serie::verTemporada(int &temp)
 {
     cout << "Serie " << id << endl;
-    cout << "Titulo: " << titulo << endl << endl;
+    cout << "Titulo: " << titulo << endl
+         << endl;
     cout << "Reproduciendo Temporada " << temp << " De " << titulo << endl;
     cout << "ID: " << id << endl;
-    cout << "Genero: " << genero << endl << endl;
+    cout << "Genero: " << genero << endl
+         << endl;
 
     for (int i = 0; i < episodios.size(); i++)
     {

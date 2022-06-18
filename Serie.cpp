@@ -31,8 +31,9 @@ void Serie::agregarTemporada(vector<Episodio> &temp)
     }
 }
 
-void Serie::vaciar(){
-    vector <Episodio> ep;
+void Serie::vaciar()
+{
+    vector<Episodio> ep;
     episodios = ep;
 }
 
@@ -91,6 +92,18 @@ void Serie::verTemporada(int &temp)
     {
         if (episodios[i].getTemporada() == temp)
         {
+            episodios[i].display();
+        }
+    }
+}
+
+void Serie::calificarEpisodio(string nombre, double calif)
+{
+    for (int i = 0; i < episodios.size(); i++)
+    {
+        if (episodios[i].getNombre() == nombre)
+        {
+            episodios[i].setCalificacion(calif);
             episodios[i].display();
         }
     }

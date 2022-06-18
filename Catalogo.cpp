@@ -13,56 +13,70 @@ Catalogo::Catalogo()
 Catalogo::Catalogo(string file)
 {
     ifstream archivo(file);
-    string linea;
-    
-    getline(archivo,linea);
 
-    while(getline(archivo,linea)){
+    if (archivo.fail())
+    {
+        throw(file);
+    }
+
+    string linea;
+
+    getline(archivo, linea);
+
+    while (getline(archivo, linea))
+    {
         stringstream stream(linea);
 
         string id, nombre, duracion, genero, calificacion, fecha, nombreEp, temporada, numero, idEp;
 
-        getline(stream,id,',');
-        getline(stream,nombre,',');
-        getline(stream,duracion,',');
-        getline(stream,genero,',');
-        getline(stream,calificacion,',');
-        getline(stream,fecha,',');
-        getline(stream,nombreEp,',');
-        getline(stream,temporada,',');
-        getline(stream,numero,',');
-        getline(stream,idEp,',');
+        getline(stream, id, ',');
+        getline(stream, nombre, ',');
+        getline(stream, duracion, ',');
+        getline(stream, genero, ',');
+        getline(stream, calificacion, ',');
+        getline(stream, fecha, ',');
+        getline(stream, nombreEp, ',');
+        getline(stream, temporada, ',');
+        getline(stream, numero, ',');
+        getline(stream, idEp, ',');
 
         double cal = stod(calificacion);
         int dur = stoi(duracion);
 
-        if (idEp.empty()){
-            Pelicula pelicula(genero,id,nombre,cal,dur,fecha);
+        if (idEp.empty())
+        {
+            Pelicula pelicula(genero, id, nombre, cal, dur, fecha);
             agregar(pelicula);
         }
-        else {
+        else
+        {
             int temp = stoi(temporada);
             int num = stoi(numero);
 
-            Episodio episodio(temp,num,idEp,nombreEp,cal,dur,fecha);
+            Episodio episodio(temp, num, idEp, nombreEp, cal, dur, fecha);
 
-            if (series.empty()){
-                Serie serie(id,nombre,genero);
+            if (series.empty())
+            {
+                Serie serie(id, nombre, genero);
                 serie.agregarEpisodio(episodio);
                 agregar(serie);
             }
-            else{
+            else
+            {
                 bool existe = false;
-                for (int i = 0; i < series.size(); i++){
-                    if (id == series[i].getId()){
+                for (int i = 0; i < series.size(); i++)
+                {
+                    if (id == series[i].getId())
+                    {
                         series[i].agregarEpisodio(episodio);
                         existe = true;
                     }
                 }
-                if (!existe){
-                    Serie serie(id,nombre,genero);
+                if (!existe)
+                {
+                    Serie serie(id, nombre, genero);
                     serie.agregarEpisodio(episodio);
-                    agregar(serie);   
+                    agregar(serie);
                 }
             }
         }
@@ -77,7 +91,8 @@ void Catalogo::agregar(Serie &serie)
 {
     series.push_back(serie);
 }
-void Catalogo::calificar(double calificacion, string nombre){
+void Catalogo::calificar(double calificacion, string nombre)
+{
     for (int i = 0; i < peliculas.size(); i++)
     {
         if (peliculas[i].getNombre() == nombre)
@@ -87,16 +102,16 @@ void Catalogo::calificar(double calificacion, string nombre){
         }
     }
 }
-void Catalogo::calificar(double calificacion, string nombre, string episodio){
+void Catalogo::calificar(double calificacion, string nombre, string episodio)
+{
     for (int i = 0; i < series.size(); i++)
     {
         if (series[i].getNombre() == nombre)
         {
-            // buscar el episodio
+            series[i].calificarEpisodio(episodio, calificacion);
         }
     }
 }
-
 
 void Catalogo::ver()
 {
@@ -174,7 +189,8 @@ void Catalogo::verCalificacion(double calif)
 
         vector<Episodio> episodios = series[i].getCalificacion(calif);
         serie.agregarTemporada(episodios);
-        if (!episodios.empty()){
+        if (!episodios.empty())
+        {
             serie.verEpisodios();
         }
     }
@@ -211,7 +227,8 @@ void Catalogo::verCalificacion(double calif, string tipo)
 
             vector<Episodio> episodios = series[i].getCalificacion(calif);
             serie.agregarTemporada(episodios);
-            if (!episodios.empty()){
+            if (!episodios.empty())
+            {
                 serie.verEpisodios();
             }
         }
@@ -226,14 +243,16 @@ void Catalogo::verGenero(string genero)
 
     for (int i = 0; i < peliculas.size(); i++)
     {
-        vector <string> generos;
+        vector<string> generos;
         string gen;
         stringstream linea(peliculas[i].getGenero());
-        while(getline(linea,gen,'/')){
+        while (getline(linea, gen, '/'))
+        {
             generos.push_back(gen);
         }
 
-        for (int j = 0; j < generos.size(); j++){
+        for (int j = 0; j < generos.size(); j++)
+        {
             if (generos[j] == genero)
             {
                 peliculas[i].display();
@@ -243,14 +262,16 @@ void Catalogo::verGenero(string genero)
 
     for (int i = 0; i < series.size(); i++)
     {
-        vector <string> generos;
+        vector<string> generos;
         string gen;
         stringstream linea(series[i].getGenero());
-        while(getline(linea,gen,'/')){
+        while (getline(linea, gen, '/'))
+        {
             generos.push_back(gen);
         }
 
-        for (int j = 0; j < generos.size(); j++){
+        for (int j = 0; j < generos.size(); j++)
+        {
             if (generos[j] == genero)
             {
                 series[i].verEpisodios();

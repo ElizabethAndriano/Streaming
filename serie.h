@@ -29,6 +29,8 @@ public:
     vector<Episodio> getCalificacion(double &calif);
     void verEpisodios();
     void verTemporada(int &temp);
+
+    void calificarEpisodio(string nombre, double calif);
 };
 
 #endif

@@ -215,9 +215,18 @@ void Catalogo::verGenero(string genero)
 
     for (int i = 0; i < series.size(); i++)
     {
-        if (series[i].getGenero() == genero)
-        {
-            series[i].verEpisodios();
+        vector <string> generos;
+        string gen;
+        stringstream linea(series[i].getGenero());
+        while(getline(linea,gen,'/')){
+            generos.push_back(gen);
+        }
+
+        for (int j = 0; j < generos.size(); j++){
+            if (generos[j] == genero)
+            {
+                series[i].verEpisodios();
+            }
         }
     }
 

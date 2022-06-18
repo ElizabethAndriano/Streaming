@@ -31,13 +31,13 @@ void Streaming::iniciar(){
                     verCalificacionOGenero();
                     break;
                 case 3:
-                    // Ver episodios
+                    verEpisodios();
                     break;
                 case 4:
-                    // Filtrar calificacion series o películas
+                    verCalificacion();
                     break;
                 case 5:
-                    // Calificar video
+                    calificar();
                     break;
                 case 0:
                     // Salir
@@ -90,7 +90,7 @@ void Streaming::verCalificacionOGenero() {
                 cin.ignore();
                 cin >> input;
                 cout << endl;
-                
+
                 opcion = stoi(input);
                 catalogo.verCalificacion(opcion);
                 break;
@@ -98,6 +98,8 @@ void Streaming::verCalificacionOGenero() {
                 cout << "Ingresa el genero: ";
                 cin.ignore();
                 cin >> input;
+                cout << endl;
+
                 catalogo.verGenero(input);
                 break;
             case 0:
@@ -112,6 +114,133 @@ void Streaming::verCalificacionOGenero() {
             cout << endl << "Error: Ingrese un numero" << endl;
         }
     }
+}
 
+void Streaming::verEpisodios() {
+    string input;
+    try {
+        cin.ignore();
+        cout << "Ingresa el nombre de la serie: ";
+        getline(cin, input);
+        cout << endl;
 
+        catalogo.verSerie(input);
+    }
+    catch (const invalid_argument &excepcion){
+        cout << endl << "Error: Ingrese el nombre de la serie" << endl;
+    }
+}
+
+void Streaming::verCalificacion() {
+    int opcion = -1;
+    int calificacion;
+    string input;
+
+    while (opcion != 0){
+        try {
+            cout << "Ingresa 1 para ver peliculas o 2 para ver series: ";
+            cin.ignore();
+            cin >> input; 
+            cout << endl;
+
+            opcion = stoi(input);
+
+            switch (opcion)
+            {
+            case 1:
+                cout << "Ingresa el numero de calificacion: ";
+                cin.ignore();
+                cin >> input;
+                cout << endl;
+
+                calificacion = stoi(input);
+                catalogo.verCalificacion(calificacion,"peliculas");
+                break;
+            case 2:
+                cout << "Ingresa el numero de calificacion: ";
+                cin.ignore();
+                cin >> input;
+                cout << endl;
+
+                calificacion = stoi(input);
+                catalogo.verCalificacion(calificacion,"series");
+                break;
+            case 0:
+                // salir
+                break;
+            default:
+                cout << "Error: Ingresa una opcion valida o 0 para volver al menu" << endl;
+                break;
+            }
+        } 
+        catch (const invalid_argument &excepcion){
+            cout << endl << "Error: Ingrese un numero" << endl;
+        }
+    }
+}
+void Streaming::calificar(){
+    int opcion = -1;
+    int calificacion;
+    string input, nombre, episodio;
+
+    while (opcion != 0){
+        try {
+            cout << "Ingresa 1 para calificar una pelicula o 2 para calificar una serie: ";
+            cin.ignore();
+            cin >> input; 
+            cout << endl;
+
+            opcion = stoi(input);
+
+            switch (opcion)
+            {
+            case 1:
+                cout << "Ingresa el nombre de la película: ";
+                cin.ignore();
+                cin >> nombre;
+                cout << endl;
+
+                cout << "Ingresa la nueva calificacion: ";
+                cin.ignore();
+                cin >> input;
+                cout << endl;
+
+                calificacion = stoi(input);
+                catalogo.calificar(calificacion,nombre);
+
+                opcion = 0;
+                break;
+            case 2:
+                cout << "Ingresa el nombre de la serie: ";
+                cin.ignore();
+                cin >> nombre;
+                cout << endl;
+
+                cout << "Ingresa el nombre del episodio: ";
+                cin.ignore();
+                cin >> episodio;
+                cout << endl;
+
+                cout << "Ingresa la nueva calificacion: ";
+                cin.ignore();
+                cin >> input;
+                cout << endl;
+
+                calificacion = stoi(input);
+                catalogo.calificar(calificacion,nombre,episodio);
+
+                opcion = 0;
+                break;
+            case 0:
+                // salir
+                break;
+            default:
+                cout << "Error: Ingresa una opcion valida o 0 para volver al menu" << endl;
+                break;
+            }
+        } 
+        catch (const invalid_argument &excepcion){
+            cout << endl << "Error: Ingrese un numero" << endl;
+        }
+    }
 }

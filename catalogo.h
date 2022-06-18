@@ -21,10 +21,12 @@ public:
 
     void agregar(Pelicula &pelicula);
     void agregar(Serie &serie);
-    void calificar();
+    void calificar(double calificacion, string nombre);
+    void calificar(double calificacion, string nombre, string episodio);
     
     void ver();
     void ver(string tipo);
+    void verSerie(string nombre);
     void verCalificacion(double calif);
     void verCalificacion(double calif, string tipo);
     void verGenero(string genero);

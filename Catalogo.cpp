@@ -77,10 +77,26 @@ void Catalogo::agregar(Serie &serie)
 {
     series.push_back(serie);
 }
-void Catalogo::calificar()
-{
-    
+void Catalogo::calificar(double calificacion, string nombre){
+    for (int i = 0; i < peliculas.size(); i++)
+    {
+        if (peliculas[i].getNombre() == nombre)
+        {
+            peliculas[i].setCalificacion(calificacion);
+            peliculas[i].display();
+        }
+    }
 }
+void Catalogo::calificar(double calificacion, string nombre, string episodio){
+    for (int i = 0; i < series.size(); i++)
+    {
+        if (series[i].getNombre() == nombre)
+        {
+            // buscar el episodio
+        }
+    }
+}
+
 
 void Catalogo::ver()
 {
@@ -128,6 +144,16 @@ void Catalogo::ver(string tipo)
     cout << "********************************************************" << endl
          << endl;
 }
+void Catalogo::verSerie(string nombre)
+{
+    for (int i = 0; i < series.size(); i++)
+    {
+        if (series[i].getNombre() == nombre)
+        {
+            series[i].verEpisodios();
+        }
+    }
+}
 void Catalogo::verCalificacion(double calif)
 {
     cout << "*****************    Calificacion " << calif << "    *****************" << endl
@@ -158,8 +184,6 @@ void Catalogo::verCalificacion(double calif)
 }
 void Catalogo::verCalificacion(double calif, string tipo)
 {
-    cout << "*****************    Calificacion " << calif << "    *****************" << endl
-         << endl;
 
     if (tipo == "peliculas")
     {
@@ -182,10 +206,14 @@ void Catalogo::verCalificacion(double calif, string tipo)
              << endl;
         for (int i = 0; i < series.size(); i++)
         {
-            Serie serie;
+            Serie serie = series[i];
+            serie.vaciar();
+
             vector<Episodio> episodios = series[i].getCalificacion(calif);
             serie.agregarTemporada(episodios);
-            serie.verEpisodios();
+            if (!episodios.empty()){
+                serie.verEpisodios();
+            }
         }
     }
     cout << "********************************************************" << endl

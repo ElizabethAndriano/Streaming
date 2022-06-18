@@ -24,6 +24,7 @@ public:
     void vaciar();
 
     string getId();
+    string getNombre();
     string getGenero();
     vector<Episodio> getCalificacion(double &calif);
     void verEpisodios();

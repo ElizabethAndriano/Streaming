@@ -12,6 +12,9 @@ public:
     
     void cargarCatalogo();
     void verCalificacionOGenero();
+    void verEpisodios();
+    void verCalificacion();
+    void calificar();
 
 };
 

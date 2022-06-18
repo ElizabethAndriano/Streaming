@@ -41,6 +41,11 @@ string Serie::getId()
     return id;
 }
 
+string Serie::getNombre()
+{
+    return titulo;
+}
+
 string Serie::getGenero()
 {
     return genero;

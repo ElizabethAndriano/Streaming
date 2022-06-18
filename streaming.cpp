@@ -103,8 +103,8 @@ void Streaming::verCalificacionOGenero()
                 cin >> input;
                 cout << endl;
 
-                opcion = stod(input);
-                catalogo.verCalificacion(opcion);
+                // opcion = stod(input);
+                catalogo.verCalificacion(stod(input));
                 break;
             case 2:
                 cout << "Ingresa el genero: ";
@@ -202,7 +202,7 @@ void Streaming::verCalificacion()
 void Streaming::calificar()
 {
     int opcion = -1;
-    int calificacion;
+    double calificacion;
     string input, nombre, episodio;
 
     while (opcion != 0)
@@ -228,6 +228,7 @@ void Streaming::calificar()
                 cout << endl;
 
                 calificacion = stod(input);
+
                 catalogo.calificar(calificacion, nombre);
 
                 opcion = 0;
@@ -239,12 +240,8 @@ void Streaming::calificar()
                 cout << endl;
 
                 cout << "Ingresa el nombre del episodio: ";
-                cin.ignore();
                 getline(cin, episodio);
                 cout << endl;
-
-                cout << "ERROR AQUI" << endl
-                     << "Lo que acaba de poner el usuario es: " << episodio << endl;
 
                 cout << "Ingresa la nueva calificacion: ";
                 cin >> input;

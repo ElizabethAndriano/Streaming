@@ -21,7 +21,9 @@ public:
 
     void agregarEpisodio(Episodio &ep);
     void agregarTemporada(vector<Episodio> &temp);
+    void vaciar();
 
+    string getId();
     string getGenero();
     vector<Episodio> getCalificacion(double &calif);
     void verEpisodios();

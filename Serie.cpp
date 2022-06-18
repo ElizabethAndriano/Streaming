@@ -31,6 +31,16 @@ void Serie::agregarTemporada(vector<Episodio> &temp)
     }
 }
 
+void Serie::vaciar(){
+    vector <Episodio> ep;
+    episodios = ep;
+}
+
+string Serie::getId()
+{
+    return id;
+}
+
 string Serie::getGenero()
 {
     return genero;

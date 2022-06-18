@@ -1,13 +1,13 @@
 #include <iostream>
 //#include <vector>
 //#include <string>
-#include "catalogo.h"
+#include "streaming.h"
 
 using namespace std;
 
 int main()
 {
-    Episodio episodio(1,1,"tt1668899","Winter Is Coming",9,57,"04/17/2011");
+    /*Episodio episodio(1,1,"tt1668899","Winter Is Coming",9,57,"04/17/2011");
     episodio.display();
 
     Serie serie("tt0944947","Game Of Thrones","Action, Adventure, Drama, Fantasy, Romance");
@@ -21,7 +21,14 @@ int main()
     catalogo.agregar(pelicula);
     catalogo.agregar(serie);
 
-    catalogo.ver();
+    
+
+    Catalogo catalogo("BasePeliculas.csv");
+    catalogo.ver();*/
+
+    Streaming streaming;
+
+    streaming.iniciar();
 
     return 0;
 }

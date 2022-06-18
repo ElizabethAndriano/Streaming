@@ -1,4 +1,6 @@
 #include <iostream>
+#include <sstream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include "catalogo.h"
@@ -10,8 +12,61 @@ Catalogo::Catalogo()
 }
 Catalogo::Catalogo(string file)
 {
-    // Leer el archivo y almacenarlo en los vectores
-    // Se agregará cuando veamos leer archivos
+    ifstream archivo(file);
+    string linea;
+    
+    getline(archivo,linea);
+
+    while(getline(archivo,linea)){
+        stringstream stream(linea);
+
+        string id, nombre, duracion, genero, calificacion, fecha, nombreEp, temporada, numero, idEp;
+
+        getline(stream,id,',');
+        getline(stream,nombre,',');
+        getline(stream,duracion,',');
+        getline(stream,genero,',');
+        getline(stream,calificacion,',');
+        getline(stream,fecha,',');
+        getline(stream,nombreEp,',');
+        getline(stream,temporada,',');
+        getline(stream,numero,',');
+        getline(stream,idEp,',');
+
+        double cal = stod(calificacion);
+        int dur = stoi(duracion);
+
+        if (idEp.empty()){
+            Pelicula pelicula(genero,id,nombre,cal,dur,fecha);
+            agregar(pelicula);
+        }
+        else {
+            int temp = stoi(temporada);
+            int num = stoi(numero);
+
+            Episodio episodio(temp,num,idEp,nombreEp,cal,dur,fecha);
+
+            if (series.empty()){
+                Serie serie(id,nombre,genero);
+                serie.agregarEpisodio(episodio);
+                agregar(serie);
+            }
+            else{
+                bool existe = false;
+                for (int i = 0; i < series.size(); i++){
+                    if (id == series[i].getId()){
+                        series[i].agregarEpisodio(episodio);
+                        existe = true;
+                    }
+                }
+                if (!existe){
+                    Serie serie(id,nombre,genero);
+                    serie.agregarEpisodio(episodio);
+                    agregar(serie);   
+                }
+            }
+        }
+    }
 }
 
 void Catalogo::agregar(Pelicula &pelicula)
@@ -24,7 +79,7 @@ void Catalogo::agregar(Serie &serie)
 }
 void Catalogo::calificar()
 {
-    // En proceso
+    
 }
 
 void Catalogo::ver()
@@ -88,10 +143,14 @@ void Catalogo::verCalificacion(double calif)
 
     for (int i = 0; i < series.size(); i++)
     {
-        Serie serie;
+        Serie serie = series[i];
+        serie.vaciar();
+
         vector<Episodio> episodios = series[i].getCalificacion(calif);
         serie.agregarTemporada(episodios);
-        serie.verEpisodios();
+        if (!episodios.empty()){
+            serie.verEpisodios();
+        }
     }
 
     cout << "********************************************************" << endl
@@ -134,15 +193,23 @@ void Catalogo::verCalificacion(double calif, string tipo)
 }
 void Catalogo::verGenero(string genero)
 {
-    cout << "********************    Genero     *********************" << endl;
-    cout << genero << endl
-         << endl;
+    cout << "********************    " << genero << "     *********************" << endl;
+    cout << endl;
 
     for (int i = 0; i < peliculas.size(); i++)
     {
-        if (peliculas[i].getGenero() == genero)
-        {
-            peliculas[i].display();
+        vector <string> generos;
+        string gen;
+        stringstream linea(peliculas[i].getGenero());
+        while(getline(linea,gen,'/')){
+            generos.push_back(gen);
+        }
+
+        for (int j = 0; j < generos.size(); j++){
+            if (generos[j] == genero)
+            {
+                peliculas[i].display();
+            }
         }
     }
 

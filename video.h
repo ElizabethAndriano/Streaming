@@ -26,6 +26,8 @@ public:
 
     void setCalificacion(double &cali);
     virtual void display() = 0;
+
+    bool operator>=(const double &c);
 };
 
 #endif

@@ -57,7 +57,7 @@ vector<Episodio> Serie::getCalificacion(double &calif)
     vector<Episodio> epCalificacion;
     for (int i = 0; i < episodios.size(); i++)
     {
-        if (episodios[i].getCalificacion() >= calif)
+        if (episodios[i] >= calif)
         {
             epCalificacion.push_back(episodios[i]);
         }

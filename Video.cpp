@@ -21,23 +21,33 @@ Video::Video(string i, string n, double c, int d, string f)
     fechaEstreno = f;
 }
 
-string Video::getId(){
+string Video::getId()
+{
     return id;
 }
-string Video::getNombre(){
+string Video::getNombre()
+{
     return nombre;
 }
-double Video::getCalificacion(){
+double Video::getCalificacion()
+{
     return calificacion;
 }
-int Video::getDuracion(){
+int Video::getDuracion()
+{
     return duracion;
 }
-string Video::getFechaEstreno(){
+string Video::getFechaEstreno()
+{
     return fechaEstreno;
 }
 
 void Video::setCalificacion(double &cali)
 {
     calificacion = cali;
+}
+
+bool Video::operator>=(const double &c)
+{
+    return calificacion >= c;
 }

@@ -176,7 +176,7 @@ void Catalogo::verCalificacion(double calif)
 
     for (int i = 0; i < peliculas.size(); i++)
     {
-        if (peliculas[i].getCalificacion() >= calif)
+        if (peliculas[i] >= calif)
         {
             peliculas[i].display();
         }
@@ -209,7 +209,7 @@ void Catalogo::verCalificacion(double calif, string tipo)
 
         for (int i = 0; i < peliculas.size(); i++)
         {
-            if (peliculas[i].getCalificacion() >= calif)
+            if (peliculas[i] >= calif)
             {
                 peliculas[i].display();
             }
